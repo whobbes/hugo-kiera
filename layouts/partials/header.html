@@ -12,11 +12,12 @@
   <div id="container">
     <header>
       <h1>
-                <a href="{{ relURL "/" }}">{{ .Site.Title | markdownify }}</a>
-            </h1>
-
+        <a href="{{ relURL "/" }}">{{ .Site.Title | markdownify }}</a>
+      </h1>
       <ul id="social-media">
-        {{ if .Site.Author.twitter }}
+        {{ if .Site.Author.home }}
+        <li><a href="{{ .Site.Author.home }}"><i class="fa fa-home fa-lg" aria-hidden="true"></i></a></li>
+        {{ end }} {{ if .Site.Author.twitter }}
         <li><a href="https://twitter.com/{{ .Site.Author.twitter }}"><i class="fa fa-twitter fa-lg" aria-hidden="true"></i></a></li>
         {{ end }} {{ if .Site.Author.linkedin }}
         <li><a href="https://www.linkedin.com/in/{{ .Site.Author.linkedin }}"><i class="fa fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
@@ -34,7 +35,5 @@
       <p><em>{{ . | markdownify }}</em></p>
       {{ end }}
     </header>
-
     {{ partial "nav" . }}
-
     <main>
